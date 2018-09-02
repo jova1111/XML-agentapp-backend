@@ -70,7 +70,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "category",
     "agent",
     "comments",
-    "favours"
+    "favours",
+    "periods"
 })
 @Entity
 public class Lodging {
@@ -109,14 +110,33 @@ public class Lodging {
     protected Double price;
     @XmlAttribute(name = "location")
     protected String location;
-    @XmlAttribute(name = "fromDate")
-    @XmlSchemaType(name = "date")
-    protected Date fromDate;
-    @XmlAttribute(name = "toDate")
-    @XmlSchemaType(name = "date")
-    protected Date toDate;
+    @OneToMany
+	protected List<Period> periods;
+    public List<Period> getPeriods() {
+		return periods;
+	}
 
-    /**
+	public void setPeriods(List<Period> periods) {
+		this.periods = periods;
+	}
+
+	public Boolean getOccupancy() {
+		return occupancy;
+	}
+
+	public void setImageUrls(List<ImageUrl> imageUrls) {
+		this.imageUrls = imageUrls;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public void setFavours(List<Favour> favours) {
+		this.favours = favours;
+	}
+
+	/**
      * Gets the value of the imageUrls property.
      * 
      * <p>
@@ -466,53 +486,5 @@ public class Lodging {
     public void setLocation(String value) {
         this.location = value;
     }
-
-    /**
-     * Gets the value of the fromDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public Date getFromDate() {
-        return fromDate;
-    }
-
-    /**
-     * Sets the value of the fromDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setFromDate(Date value) {
-        this.fromDate = value;
-    }
-
-    /**
-     * Gets the value of the toDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public Date getToDate() {
-        return toDate;
-    }
-
-    /**
-     * Sets the value of the toDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setToDate(Date value) {
-        this.toDate = value;
-    }
-
+    
 }

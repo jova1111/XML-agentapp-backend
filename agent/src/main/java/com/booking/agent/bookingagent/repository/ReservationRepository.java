@@ -5,13 +5,10 @@ import java.util.List;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
-import com.booking.agent.bookingagent.model.Lodging;
-
-
+import com.booking.agent.bookingagent.model.Reservations;
 
 @Repository
-public interface LodgingRepository extends PagingAndSortingRepository<Lodging, Long> {
+public interface ReservationRepository extends PagingAndSortingRepository<Reservations,Long> {
 
-    List<Lodging> findAll();
-    
-    }
+	List<Reservations> findAll();
+}

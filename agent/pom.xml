@@ -80,23 +80,24 @@
 	</dependencies>
 
 	<build>
-	
+	<!--
 		<plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!-- tag::wsdl[] -->
+          
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
                 <version>0.13.1</version>
                 <executions>
-                    <execution>
+                     <execution>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                     </execution>
+                     
                 </executions>
                 <configuration>
                     <schemaLanguage>WSDL</schemaLanguage>
@@ -108,9 +109,9 @@
                     </schemas>
                 </configuration>
             </plugin>
-            <!-- end::wsdl[] -->
+           
         </plugins>
-		
+		-->
 	</build>
 
 

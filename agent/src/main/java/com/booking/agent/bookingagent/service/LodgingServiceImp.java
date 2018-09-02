@@ -2,6 +2,7 @@ package com.booking.agent.bookingagent.service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,12 @@ public class LodgingServiceImp implements LodgingService {
 	public void saveAll(List<Lodging> lodgings) {
 		lodgingRepository.saveAll(lodgings);
 		
+	}
+
+	@Override
+	public Optional<Lodging> findById(Long id) {
+		// TODO Auto-generated method stub
+		return lodgingRepository.findById(id);
 	}
 
 

@@ -23,6 +23,7 @@ public class CategoryContoller {
 	@RequestMapping(value="/categories", method = RequestMethod.GET)
 	public ResponseEntity<List<Category>> getServices(){
 		List<Category> categories = categoryService.findAll();
+		System.out.println("POGODIO");
 		return new ResponseEntity<List<Category>>(categories,HttpStatus.OK);
 	}
 }

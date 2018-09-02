@@ -1,8 +1,14 @@
 package com.booking.agent.bookingagent.controller;
 
+import java.util.List;
+import java.util.Optional;
+
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,7 +33,20 @@ public class LodgingController {
 	    	lodging.setOccupancy(false);
 	    	lodging.setRating(0.0);
 	        lodgingService.saveOrUpdate(lodging);
-	        client.saveLodging(lodging);
+	        //.saveLodging(lodging);
 	        return new ResponseEntity(HttpStatus.OK);
+	    }
+	    @RequestMapping(value="/lodgings", method = RequestMethod.GET)
+		private ResponseEntity<List<Lodging>> getAll() {
+	    	System.out.println("POGODIO");
+	    	List<Lodging> lodgings = lodgingService.findAll();
+	        //.saveLodging(lodging);
+	        return new ResponseEntity<List<Lodging>>(lodgings,HttpStatus.OK);
+	    }
+	    
+	    @RequestMapping(value="/lodging/{id}", method = RequestMethod.GET)
+		private ResponseEntity<Optional<Lodging>> getById(@PathVariable("id") Long id) {
+	    	Optional<Lodging> lodging = lodgingService.findById(id);
+	    	return new ResponseEntity<Optional<Lodging>>(lodging,HttpStatus.OK);
 	    }
 }
