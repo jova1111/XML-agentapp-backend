@@ -33,7 +33,7 @@ public class LodgingController {
 	    	lodging.setOccupancy(false);
 	    	lodging.setRating(0.0);
 	        lodgingService.saveOrUpdate(lodging);
-	        //.saveLodging(lodging);
+	        client.saveLodging(lodging);
 	        return new ResponseEntity(HttpStatus.OK);
 	    }
 	    @RequestMapping(value="/lodgings", method = RequestMethod.GET)

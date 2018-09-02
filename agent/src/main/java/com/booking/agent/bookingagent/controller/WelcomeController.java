@@ -36,7 +36,7 @@ public class WelcomeController {
 	private ImageUriService imageUrlService;
 	@Autowired
 	LodgingClient client;
-	  @RequestMapping(value="/welcome", method = RequestMethod.POST)
+	  /*@RequestMapping(value="/welcome", method = RequestMethod.POST)
 	    private ResponseEntity sync() {
 		  	System.out.println("AJDE DE AZURIRAJ");
 		  	GetLodgingResponse response = new GetLodgingResponse();
@@ -51,5 +51,6 @@ public class WelcomeController {
 	    	agentService.saveAll(response.getAgents());
 	    	lodgingService.saveAll(response.getLodgings());
 	        return new ResponseEntity(HttpStatus.OK);
-	    }
+	    */
+	  
 }
