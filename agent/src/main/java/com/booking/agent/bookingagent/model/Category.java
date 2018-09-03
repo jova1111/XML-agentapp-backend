@@ -40,8 +40,7 @@ import javax.xml.bind.annotation.XmlType;
 @Entity
 public class Category {
 	 @Id
-	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    protected Long id;
+	 protected Long id;
     @XmlAttribute(name = "categoryName")
     protected String categoryName;
 
@@ -73,5 +72,10 @@ public class Category {
 		// TODO Auto-generated method stub
 		return id;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 
 }

@@ -44,7 +44,6 @@ public class LodgingType {
     protected String typeName;
     @XmlAttribute(name = "id")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
 
     /**

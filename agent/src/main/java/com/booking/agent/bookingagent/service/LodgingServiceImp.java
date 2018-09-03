@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.booking.agent.bookingagent.model.Agent;
 import com.booking.agent.bookingagent.model.Lodging;
 import com.booking.agent.bookingagent.repository.LodgingRepository;
 
@@ -19,8 +20,8 @@ public class LodgingServiceImp implements LodgingService {
     private LodgingRepository lodgingRepository;
 
     @Override
-    public void saveOrUpdate(Lodging lodging) {
-        lodgingRepository.save(lodging);
+    public Lodging saveOrUpdate(Lodging lodging) {
+        return lodgingRepository.save(lodging);
     }
 
     @Override
@@ -38,6 +39,12 @@ public class LodgingServiceImp implements LodgingService {
 	public Optional<Lodging> findById(Long id) {
 		// TODO Auto-generated method stub
 		return lodgingRepository.findById(id);
+	}
+
+	@Override
+	public List<Lodging> findByAgent(Agent foundAgent) {
+		// TODO Auto-generated method stub
+		return lodgingRepository.findByAgent(foundAgent);
 	}
 
 

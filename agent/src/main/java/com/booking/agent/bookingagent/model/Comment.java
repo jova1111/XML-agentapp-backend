@@ -63,7 +63,6 @@ public class Comment {
     @XmlAttribute(name = "approved")
     protected Boolean approved;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
 	
 

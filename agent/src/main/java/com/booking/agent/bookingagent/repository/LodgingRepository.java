@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import com.booking.agent.bookingagent.model.Agent;
 import com.booking.agent.bookingagent.model.Lodging;
 
 
@@ -13,5 +14,7 @@ import com.booking.agent.bookingagent.model.Lodging;
 public interface LodgingRepository extends PagingAndSortingRepository<Lodging, Long> {
 
     List<Lodging> findAll();
+
+	List<Lodging> findByAgent(Agent foundAgent);
     
     }

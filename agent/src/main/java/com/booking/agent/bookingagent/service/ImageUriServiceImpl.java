@@ -20,8 +20,8 @@ public class ImageUriServiceImpl implements ImageUriService {
 		
 	}
 	@Override
-	public void saveAll(List<ImageUrl> imageUris) {
-		imgUriRepository.saveAll(imageUris);
+	public Iterable<ImageUrl> saveAll(List<ImageUrl> imageUris) {
+		return  imgUriRepository.saveAll(imageUris);
 		
 	}
 

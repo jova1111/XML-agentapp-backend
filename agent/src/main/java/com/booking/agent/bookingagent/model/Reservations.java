@@ -53,7 +53,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Reservations {
 	@XmlAttribute(name="id")
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	protected Long id;
     @XmlElement(required = true)
     @ManyToOne

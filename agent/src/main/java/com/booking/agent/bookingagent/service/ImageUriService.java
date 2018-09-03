@@ -7,5 +7,5 @@ import com.booking.agent.bookingagent.model.ImageUrl;
 public interface ImageUriService {
 	ImageUrl saveOrUpdate(ImageUrl imgUri);
 
-	void saveAll(List<ImageUrl> imageUris);
+	Iterable<ImageUrl> saveAll(List<ImageUrl> imageUris);
 }

@@ -9,4 +9,8 @@ public interface AgentService {
 	 
 
 		void saveAll(List<Agent> categories);
+
+		Agent save(Agent agent);
+
+		Agent findByBusinessId(String string);
 }

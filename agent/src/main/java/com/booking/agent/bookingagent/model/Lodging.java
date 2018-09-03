@@ -434,6 +434,20 @@ public class Lodging {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public void setImageUrls(List<ImageUrl> imageUrls) {
+		this.imageUrls = imageUrls;
+	}
+
+	public void setPeriods(List<Period> periods) {
+		this.periods = periods;
+		
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+		
+	}
 	
 	
 }

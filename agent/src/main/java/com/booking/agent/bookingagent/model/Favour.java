@@ -40,8 +40,7 @@ import javax.xml.bind.annotation.XmlType;
 @Entity
 public class Favour {
 	 @Id
-	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    protected Long id;
+	 protected Long id;
     @XmlAttribute(name = "name")
     protected String name;
 
@@ -74,4 +73,8 @@ public class Favour {
 		return id;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 }

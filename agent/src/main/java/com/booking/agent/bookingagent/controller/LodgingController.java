@@ -3,7 +3,7 @@ package com.booking.agent.bookingagent.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.websocket.server.PathParam;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,10 +37,10 @@ public class LodgingController {
 	        return new ResponseEntity(HttpStatus.OK);
 	    }
 	    @RequestMapping(value="/lodgings", method = RequestMethod.GET)
-		private ResponseEntity<List<Lodging>> getAll() {
+		private ResponseEntity<List<Lodging>> getAll(HttpServletRequest request) {
 	    	System.out.println("POGODIO");
 	    	List<Lodging> lodgings = lodgingService.findAll();
-	        //.saveLodging(lodging);
+	        System.out.println(request.getSession().getAttribute("loggedUser"));
 	        return new ResponseEntity<List<Lodging>>(lodgings,HttpStatus.OK);
 	    }
 	    

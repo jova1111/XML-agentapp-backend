@@ -21,4 +21,17 @@ public class AgentServiceImpl implements AgentService {
 		
 	}
 
+
+	@Override
+	public Agent save(Agent agent) {
+	return agentRepository.save(agent);
+	}
+
+
+	@Override
+	public Agent findByBusinessId(String string) {
+		
+		return agentRepository.findByBusinessId(string);
+	}
+
 }
