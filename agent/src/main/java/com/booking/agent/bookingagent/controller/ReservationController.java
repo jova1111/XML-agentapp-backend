@@ -2,6 +2,9 @@ package com.booking.agent.bookingagent.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,9 +32,11 @@ public class ReservationController {
 	 @Autowired
 	 private LodgingClient client;
    
-	   @RequestMapping(value="/reservations", method = RequestMethod.GET)
-	    private ResponseEntity<List<Reservations>> getAll() {
-		  List<Reservations> reservations = reservationService.findAll();
+	   @RequestMapping(value="/secure/reservations", method = RequestMethod.GET)
+	    private ResponseEntity<List<Reservations>> getAll(HttpServletRequest request) {
+		   String businessId = request.getAttribute("businessId").toString();
+		   List<Reservations> reservations = reservationService.findAll();
+		   reservations = reservations.stream().filter(r -> r.getLodging().getAgent().getBusinessId().equals(businessId)).collect(Collectors.toList());
 		   return new ResponseEntity<List<Reservations>>(reservations,HttpStatus.OK);
 	    }
 	   

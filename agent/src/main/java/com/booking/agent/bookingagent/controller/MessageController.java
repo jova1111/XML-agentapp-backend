@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,9 +26,9 @@ public class MessageController {
     private MessageService messageService;
     @Autowired
 	 private LodgingClient client;
-    @RequestMapping(value = "/messages", method = RequestMethod.GET)
-	private ResponseEntity<List<Message>> getAll(){
-    	List<Message> messages = messageService.findByReciverId("225883");
+    @RequestMapping(value = "/secure/messages", method = RequestMethod.GET)
+	private ResponseEntity<List<Message>> getAll(HttpServletRequest request){
+    	List<Message> messages = messageService.findByReciverId(request.getAttribute("businessId").toString());
     	return new ResponseEntity<List<Message>>(messages,HttpStatus.OK);
     }
     @RequestMapping(value = "/message/{id}", method = RequestMethod.POST)
